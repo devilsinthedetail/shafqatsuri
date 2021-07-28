@@ -127,7 +127,7 @@ class NostalgiaForInfinityV5MultiOffsetAndHOSL2(IStrategy):
         "300": 0.005
     }
 
-    stoploss = -0.05
+    stoploss = -0.1
 
     # Multi Offset
     base_nb_candles_buy = IntParameter(
