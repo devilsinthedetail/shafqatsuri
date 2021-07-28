@@ -53,10 +53,10 @@ class NostalgiaForInfinityV7MultiOffsetAndHO3(IStrategy):
         "0": 0.025,
         "30": 0.015,
         "60": 0.01,
-        "300": 0.005
+     #   "300": 0.005
     }
 
-    stoploss = -0.04
+    stoploss = -0.1
 
     # Trailing stoploss (not used)
     trailing_stop = True
