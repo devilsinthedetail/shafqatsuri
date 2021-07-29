@@ -94,7 +94,7 @@ class ElliotV7(IStrategy):
     ## Optional order time in force.
     order_time_in_force = {
         'buy': 'gtc',
-        'sell': 'ioc'
+        'sell': 'gtc'
     }
 
     # Optimal timeframe for the strategy
