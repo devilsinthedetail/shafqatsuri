@@ -224,11 +224,10 @@ class NostalgiaForInfinityV5MultiOffsetAndHO3(IStrategy):
             'ma_offset_buy': {'color': 'orange'},
             'ma_offset_sell': {'color': 'orange'},
         },
-    }
-    "protections": [
-    {
-        "method": "CooldownPeriod",
-        "stop_duration_candles": 5
+    },
+    protections = [
+        {"method": "CooldownPeriod",
+         "stop_duration_candles": 2
     },
     {
         "method": "MaxDrawdown",
@@ -242,7 +241,7 @@ class NostalgiaForInfinityV5MultiOffsetAndHO3(IStrategy):
         "lookback_period_candles": 24,
         "trade_limit": 4,
         "stop_duration_candles": 2,
-        "only_per_pair": false
+        "only_per_pair": False
     },
     {
         "method": "LowProfitPairs",
@@ -257,8 +256,8 @@ class NostalgiaForInfinityV5MultiOffsetAndHO3(IStrategy):
         "trade_limit": 4,
         "stop_duration_candles": 2,
         "required_profit": 0.01
-    }
-
+    },
+    ]  
     #############################################################
 
     buy_condition_1_enable = CategoricalParameter([True, False], default=True, space='buy', optimize=False, load=True)
