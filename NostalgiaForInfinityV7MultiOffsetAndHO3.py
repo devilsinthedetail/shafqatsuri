@@ -90,7 +90,7 @@ class NostalgiaForInfinityV7MultiOffsetAndHO3(IStrategy):
         'stoploss_on_exchange': False
     }
 
-     protections = [
+    protections = [
         {"method": "CooldownPeriod",
          "stop_duration_candles": 2
     },
