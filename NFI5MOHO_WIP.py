@@ -141,6 +141,11 @@ class NFI5MOHO_WIP(IStrategy):
 
     stoploss = -0.99
 
+    protections = [
+        {"method": "CooldownPeriod",
+         "stop_duration_candles": 5
+
+
     # Multi Offset
     base_nb_candles_buy = IntParameter(
         5, 80, default=20, load=True, space='buy', optimize=True)
@@ -211,7 +216,7 @@ class NFI5MOHO_WIP(IStrategy):
     trailing_stop = True
     trailing_only_offset_is_reached = True
     trailing_stop_positive = 0.01
-    trailing_stop_positive_offset = 0.04
+    trailing_stop_positive_offset = 0.03
 
     use_custom_stoploss = False
 
