@@ -144,7 +144,7 @@ class NFI5MOHO_WIP(IStrategy):
     protections = [
         {"method": "CooldownPeriod",
          "stop_duration_candles": 5
-
+    },
 
     # Multi Offset
     base_nb_candles_buy = IntParameter(
