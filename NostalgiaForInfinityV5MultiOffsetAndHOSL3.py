@@ -45,7 +45,7 @@ from datetime import datetime
 # I hope you do enough testing before proceeding.
 # Thank you to those who created these strategies.
 
-class NostalgiaForInfinityV5MultiOffsetAndHOSL2(IStrategy):
+class NostalgiaForInfinityV5MultiOffsetAndHOSL3(IStrategy):
     INTERFACE_VERSION = 2
 
     # Optional order type mapping.
@@ -121,10 +121,10 @@ class NostalgiaForInfinityV5MultiOffsetAndHOSL2(IStrategy):
 
     # ROI table:
     minimal_roi = {
-        "0": 0.025,
+        "0": 0.12,
         "30": 0.015,
-        "60": 0.01,
-        "300": 0.005
+       "60": 0.01,
+ #       "300": 0.005
     }
 
     stoploss = -0.1
@@ -198,7 +198,7 @@ class NostalgiaForInfinityV5MultiOffsetAndHOSL2(IStrategy):
     # Trailing stoploss (not used)
     trailing_stop = True
     trailing_only_offset_is_reached = True
-    trailing_stop_positive = 0.001
+    trailing_stop_positive = 0.005
     trailing_stop_positive_offset = 0.01
 
     use_custom_stoploss = False
