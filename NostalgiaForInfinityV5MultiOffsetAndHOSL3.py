@@ -94,10 +94,8 @@ class NostalgiaForInfinityV5MultiOffsetAndHOSL3(IStrategy):
     ]
 
     {
-      //...
     "ignore_buying_expired_candle_after": 25,
-    // ...
-    }
+    },
 
     buy_params = {
         #############
