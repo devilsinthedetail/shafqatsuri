@@ -22,9 +22,9 @@ class adx_strategytseditmod(IStrategy):
     stoploss = -0.1255
     
     # Trailing stop:
-    trailing_stop = False
-    trailing_stop_positive = 0.03
-    trailing_stop_positive_offset = 0.05
+    trailing_stop = True
+    trailing_stop_positive = 0.005
+    trailing_stop_positive_offset = 0.03
     trailing_only_offset_is_reached = False
 
     def populate_indicators(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
