@@ -59,6 +59,46 @@ class NostalgiaForInfinityV5MultiOffsetAndHOSL3(IStrategy):
 
     #############################################################
 
+    protections = [
+        {"method": "CooldownPeriod",
+         "stop_duration_candles": 2
+    },
+    {
+        "method": "MaxDrawdown",
+        "lookback_period_candles": 48,
+        "trade_limit": 20,
+        "stop_duration_candles": 2,
+        "max_allowed_drawdown": 0.1
+    },
+    {
+        "method": "StoplossGuard",
+        "lookback_period_candles": 24,
+        "trade_limit": 4,
+        "stop_duration_candles": 2,
+        "only_per_pair": False
+    },
+    {
+        "method": "LowProfitPairs",
+        "lookback_period_candles": 6,
+        "trade_limit": 2,
+        "stop_duration_candles": 60,
+        "required_profit": 0.03
+    },
+    {
+        "method": "LowProfitPairs",
+        "lookback_period_candles": 24,
+        "trade_limit": 4,
+        "stop_duration_candles": 2,
+        "required_profit": 0.01
+    },
+    ]
+
+    {
+      //...
+    "ignore_buying_expired_candle_after": 25,
+    // ...
+    }
+
     buy_params = {
         #############
         # Enable/Disable conditions
