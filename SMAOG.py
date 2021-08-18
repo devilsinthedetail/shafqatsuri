@@ -46,7 +46,7 @@ class SMAOG(IStrategy):
     trailing_stop_positive = 0.005
     trailing_stop_positive_offset = 0.02
     use_sell_signal = True
-    sell_profit_only = True
+    sell_profit_only = False
     ignore_roi_if_buy_signal = False
     process_only_new_candles = True
     startup_candle_count = 400
