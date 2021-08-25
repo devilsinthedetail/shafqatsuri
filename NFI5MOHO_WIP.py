@@ -46,6 +46,20 @@ from datetime import datetime
 # Thank you to those who created these strategies.
 
 class NFI5MOHO_WIP(IStrategy):
+    protections = [
+        {
+            "method": "LowProfitPairs",
+            "lookback_period_candles": 60,
+            "trade_limit": 1,
+            "stop_duration": 60,
+            "required_profit": -0.05
+        },
+        {
+            "method": "CooldownPeriod",
+            "stop_duration_candles": 2
+        }
+    ]
+        
     INTERFACE_VERSION = 2
 
     # Optional order type mapping.
@@ -139,45 +153,39 @@ class NFI5MOHO_WIP(IStrategy):
         "60": 0.01
     }
 
-    stoploss = -0.99
-
-    protections = [
-        {"method": "CooldownPeriod",
-         "stop_duration_candles": 5
-    }
-    ]
+    stoploss = -0.15
 
     # Multi Offset
     base_nb_candles_buy = IntParameter(
-        5, 80, default=20, load=True, space='buy', optimize=True)
+        5, 80, default=20, load=True, space='buy', optimize=False)
     base_nb_candles_sell = IntParameter(
-        5, 80, default=20, load=True, space='sell', optimize=True)
+        5, 80, default=20, load=True, space='sell', optimize=False)
     low_offset_sma = DecimalParameter(
-        0.9, 0.99, default=0.958, load=True, space='buy', optimize=True)
+        0.9, 0.99, default=0.958, load=True, space='buy', optimize=False)
     high_offset_sma = DecimalParameter(
-        0.99, 1.1, default=1.012, load=True, space='sell', optimize=True)
+        0.99, 1.1, default=1.012, load=True, space='sell', optimize=False)
     low_offset_ema = DecimalParameter(
-        0.9, 0.99, default=0.958, load=True, space='buy', optimize=True)
+        0.9, 0.99, default=0.958, load=True, space='buy', optimize=False)
     high_offset_ema = DecimalParameter(
-        0.99, 1.1, default=1.012, load=True, space='sell', optimize=True)
+        0.99, 1.1, default=1.012, load=True, space='sell', optimize=False)
     low_offset_trima = DecimalParameter(
-        0.9, 0.99, default=0.958, load=True, space='buy', optimize=True)
+        0.9, 0.99, default=0.958, load=True, space='buy', optimize=False)
     high_offset_trima = DecimalParameter(
-        0.99, 1.1, default=1.012, load=True, space='sell', optimize=True)
+        0.99, 1.1, default=1.012, load=True, space='sell', optimize=False)
     low_offset_t3 = DecimalParameter(
-        0.9, 0.99, default=0.958, load=True, space='buy', optimize=True)
+        0.9, 0.99, default=0.958, load=True, space='buy', optimize=False)
     high_offset_t3 = DecimalParameter(
-        0.99, 1.1, default=1.012, load=True, space='sell', optimize=True)
+        0.99, 1.1, default=1.012, load=True, space='sell', optimize=False)
     low_offset_kama = DecimalParameter(
-        0.9, 0.99, default=0.958, load=True, space='buy', optimize=True)
+        0.9, 0.99, default=0.958, load=True, space='buy', optimize=False)
     high_offset_kama = DecimalParameter(
-        0.99, 1.1, default=1.012, load=True, space='sell', optimize=True)
+        0.99, 1.1, default=1.012, load=True, space='sell', optimize=False)
 
     # Protection
     ewo_low = DecimalParameter(
-        -20.0, -8.0, default=-20.0, load=True, space='buy', optimize=True)
+        -20.0, -8.0, default=-20.0, load=True, space='buy', optimize=False)
     ewo_high = DecimalParameter(
-        2.0, 12.0, default=6.0, load=True, space='buy', optimize=True)
+        2.0, 12.0, default=6.0, load=True, space='buy', optimize=False)
     fast_ewo = IntParameter(
         10, 50, default=50, load=True, space='buy', optimize=False)
     slow_ewo = IntParameter(
@@ -217,7 +225,7 @@ class NFI5MOHO_WIP(IStrategy):
     trailing_stop = True
     trailing_only_offset_is_reached = True
     trailing_stop_positive = 0.01
-    trailing_stop_positive_offset = 0.03
+    trailing_stop_positive_offset = 0.04
 
     use_custom_stoploss = False
 
@@ -403,8 +411,8 @@ class NFI5MOHO_WIP(IStrategy):
     buy_rsi_18 = DecimalParameter(16.0, 32.0, default=26.0, space='buy', decimals=1, optimize=False, load=True)
     buy_bb_offset_18 = DecimalParameter(0.98, 1.0, default=0.982, space='buy', decimals=3, optimize=False, load=True)
 
-    buy_rsi_1h_min_19 = DecimalParameter(40.0, 70.0, default=50.0, space='buy', decimals=1, optimize=True, load=True)
-    buy_chop_min_19 = DecimalParameter(20.0, 60.0, default=24.1, space='buy', decimals=1, optimize=True, load=True)
+    buy_rsi_1h_min_19 = DecimalParameter(40.0, 70.0, default=50.0, space='buy', decimals=1, optimize=False, load=True)
+    buy_chop_min_19 = DecimalParameter(20.0, 60.0, default=24.1, space='buy', decimals=1, optimize=False, load=True)
 
     buy_volume_20 = DecimalParameter(0.5, 6.0, default=1.2, space='buy', decimals=1, optimize=False, load=True)
     #buy_ema_rel_20 = DecimalParameter(0.97, 0.999, default=0.988, space='buy', decimals=3, optimize=False, load=True)
