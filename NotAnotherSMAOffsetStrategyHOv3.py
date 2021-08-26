@@ -100,7 +100,20 @@ def EWO(dataframe, ema_length=5, ema2_length=35):
 
 class NotAnotherSMAOffsetStrategyHOv3(IStrategy):
     INTERFACE_VERSION = 2
-
+    protections = [
+        {
+            "method": "LowProfitPairs",
+            "lookback_period_candles": 60,
+            "trade_limit": 1,
+            "stop_duration": 60,
+            "required_profit": -0.05
+        },
+        {
+            "method": "CooldownPeriod",
+            "stop_duration_candles": 2
+        }
+    ]
+    
     # ROI table:
     minimal_roi = {
         # "0": 0.283,

@@ -15,6 +15,20 @@ ma_types = {
 }
 class SMAOG(IStrategy):
     INTERFACE_VERSION = 2
+    protections = [
+        {
+            "method": "LowProfitPairs",
+            "lookback_period_candles": 60,
+            "trade_limit": 1,
+            "stop_duration": 60,
+            "required_profit": -0.05
+        },
+        {
+            "method": "CooldownPeriod",
+            "stop_duration_candles": 2
+        }
+    ]    
+    
     buy_params = {
         "base_nb_candles_buy": 26,
         "buy_trigger": "SMA",
